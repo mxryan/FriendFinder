@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/mxryan/FriendFinder/issues"
   },
-  "homepage": "https://github.com/mxryan/FriendFinder#readme"
+  "homepage": "https://github.com/mxryan/FriendFinder#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "path": "^0.12.7"
+  }
 }
