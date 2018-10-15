@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,37 @@
   <title>Friend Finder - Survey</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <h1>Hello this is the survey page</h1>
+    <form id="form">
+      <input type="text">
+      <input type="radio" name="gender" value="male" id="q1"> Male<br>
+      <input type="radio" name="gender" value="female" id="q2"> Female<br>
+      <input type="radio" name="gender" value="other" id="q3"> Other
+    </form>
   </div>
+  <script>
+    const q1 = document.querySelector("#q1");
+    const q2 = document.querySelector("#q2");
+    const q3 = document.querySelector("#q3");
+    const testData = {
+      name: "Billiard Lolligaggins",
+      photoURL: "#",
+      responses: [5,4,3,2,1,1,2,3,4,5]
+    };
+
+    function sendData(data) {
+      console.log("send data called");
+      const req = new XMLHttpRequest();
+      req.open("POST", "/api/friends");
+      req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      console.log(data);
+      req.send(JSON.stringify(data));
+    }
+    sendData(testData);
+  </script>
 </body>
+
 </html>
