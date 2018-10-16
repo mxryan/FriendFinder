@@ -2,6 +2,7 @@
 // views: home, survey
 // form validation on survey page
 // upon submission they recieve their best "friend match"
+// bonus: page to view all users?
 
 const express = require("express");
 const app = express();

@@ -48,7 +48,7 @@
         </div>
         <div class="form-group">
           <label for="q3">
-            I like cats:
+            I like broccoli:
           </label>
           <select class="form-control question" id="q3">
             <option value="1">1 (Strongly disagree)</option>
@@ -60,7 +60,7 @@
         </div>
         <div class="form-group">
           <label for="q4">
-            I like dogs:
+            I like squash:
           </label>
           <select class="form-control question" id="q4">
             <option value="1">1 (Strongly disagree)</option>
@@ -72,7 +72,7 @@
         </div>
         <div class="form-group">
           <label for="q5">
-            I like cats:
+            I like quidditch:
           </label>
           <select class="form-control question" id="q5">
             <option value="1">1 (Strongly disagree)</option>
@@ -84,7 +84,7 @@
         </div>
         <div class="form-group">
           <label for="q6">
-            I like cats:
+            I like rain:
           </label>
           <select class="form-control question" id="q6">
             <option value="1">1 (Strongly disagree)</option>
@@ -96,7 +96,7 @@
         </div>
         <div class="form-group">
           <label for="q7">
-            I like dogs:
+            I like turtles:
           </label>
           <select class="form-control question" id="q7">
             <option value="1">1 (Strongly disagree)</option>
@@ -108,7 +108,7 @@
         </div>
         <div class="form-group">
           <label for="q8">
-            I like cats:
+            I like poptarts:
           </label>
           <select class="form-control question" id="q8">
             <option value="1">1 (Strongly disagree)</option>
@@ -120,7 +120,7 @@
         </div>
         <div class="form-group">
           <label for="q9">
-            I like cats:
+            I like grapes:
           </label>
           <select class="form-control question" id="q9">
             <option value="1">1 (Strongly disagree)</option>
@@ -132,7 +132,7 @@
         </div>
         <div class="form-group">
           <label for="q10">
-            I like cats:
+            I like? :
           </label>
           <select class="form-control question" id="q10">
             <option value="1">1 (Strongly disagree)</option>
@@ -153,21 +153,21 @@
       const subBtn = document.querySelector("#submit");
       subBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        grabData();
+        grabAndPost();
       })
     }
 
-    function grabData() {
+    function grabAndPost() {
       const name = document.querySelector("#user-name");
       const photoURL = document.querySelector("#user-img-url")
       const quests = document.querySelectorAll(".question");
       const out = {
-        user: name.value,
-        photo: photoURL.value,
-        responses: []
+        name: name.value,
+        photoURL: photoURL.value,
+        scores: []
       }
       for (var i = 0; i < quests.length; i++) {
-        out.responses.push(quests[i].value);
+        out.scores.push(quests[i].value);
       }
       postData(out)
         .then(data => console.log(data))
