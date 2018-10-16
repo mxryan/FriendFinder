@@ -12,32 +12,181 @@
 <body>
   <div class="container">
     <h1>Hello this is the survey page</h1>
-    <form id="form">
-      <input type="text">
-      <input type="radio" name="gender" value="male" id="q1"> Male<br>
-      <input type="radio" name="gender" value="female" id="q2"> Female<br>
-      <input type="radio" name="gender" value="other" id="q3"> Other
-    </form>
+    <div id="form-area">
+      <form>
+        <div class="form-group">
+          <label for="user-name">Name</label>
+          <input type="text" class="form-control" id="user-name">
+        </div>
+        <div class="form-group">
+          <label for="user-img-url">Photo URL: </label>
+          <input type="text" class="form-control" id="user-img-url">
+        </div>
+        <div class="form-group">
+          <label for="q1">
+            I like dogs:
+          </label>
+          <select class="form-control question" id="q1">
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="q2">
+            I like cats:
+          </label>
+          <select class="form-control question" id="q2">
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="q3">
+            I like cats:
+          </label>
+          <select class="form-control question" id="q3">
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="q4">
+            I like dogs:
+          </label>
+          <select class="form-control question" id="q4">
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="q5">
+            I like cats:
+          </label>
+          <select class="form-control question" id="q5">
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="q6">
+            I like cats:
+          </label>
+          <select class="form-control question" id="q6">
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="q7">
+            I like dogs:
+          </label>
+          <select class="form-control question" id="q7">
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="q8">
+            I like cats:
+          </label>
+          <select class="form-control question" id="q8">
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="q9">
+            I like cats:
+          </label>
+          <select class="form-control question" id="q9">
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="q10">
+            I like cats:
+          </label>
+          <select class="form-control question" id="q10">
+            <option value="1">1 (Strongly disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly agree)</option>
+          </select>
+        </div>
+        <button id="submit">Click Me</button>
+
+
+      </form>
+    </div>
   </div>
   <script>
-    const q1 = document.querySelector("#q1");
-    const q2 = document.querySelector("#q2");
-    const q3 = document.querySelector("#q3");
-    const testData = {
-      name: "Billiard Lolligaggins",
-      photoURL: "#",
-      responses: [5,4,3,2,1,1,2,3,4,5]
-    };
+    
 
-    function sendData(data) {
-      console.log("send data called");
-      const req = new XMLHttpRequest();
-      req.open("POST", "/api/friends");
-      req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-      console.log(data);
-      req.send(JSON.stringify(data));
+    function setButton() {
+      const subBtn = document.querySelector("#submit");
+      subBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        grabData();
+      })
     }
-    sendData(testData);
+
+    function grabData() {
+      const name = document.querySelector("#user-name");
+      const photoURL = document.querySelector("#user-img-url")
+      const quests = document.querySelectorAll(".question");
+      const out = {
+        user: name.value,
+        photo: photoURL.value,
+        responses: []
+      }
+      for (var i = 0; i < quests.length; i++) {
+        out.responses.push(quests[i].value);
+      }
+      postData(out);
+    }
+
+    function postData(data) {
+      fetch("/api/friends", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          },
+          body: JSON.stringify(data)
+        })
+        .then((res) => {
+          console.log(res.text());
+        });
+    }
+    setButton();
   </script>
 </body>
 

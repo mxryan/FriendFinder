@@ -1,8 +1,6 @@
 // todo:
-// views: home, survey, modal?
-// user can navigate to home page which explains the app
-// user can click a button which takes them to survey page
-// user completes the survey and submits it
+// views: home, survey
+// form validation on survey page
 // upon submission they recieve their best "friend match"
 
 const express = require("express");
