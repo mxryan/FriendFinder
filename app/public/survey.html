@@ -149,8 +149,6 @@
     </div>
   </div>
   <script>
-    
-
     function setButton() {
       const subBtn = document.querySelector("#submit");
       subBtn.addEventListener("click", (e) => {
@@ -171,20 +169,20 @@
       for (var i = 0; i < quests.length; i++) {
         out.responses.push(quests[i].value);
       }
-      postData(out);
+      postData(out)
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
     }
 
     function postData(data) {
-      fetch("/api/friends", {
+      return fetch("/api/friends", {
           method: "POST",
           headers: {
             "Content-Type": "application/json; charset=utf-8"
           },
           body: JSON.stringify(data)
         })
-        .then((res) => {
-          console.log(res.text());
-        });
+        .then(res => res.json());
     }
     setButton();
   </script>

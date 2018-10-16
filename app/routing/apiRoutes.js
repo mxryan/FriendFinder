@@ -8,6 +8,10 @@ module.exports = function(app) {
   app.post("/api/friends", function(req, res){
     const incoming = req.body;
     console.log(incoming);
-    res.send("hello");
+    res.json({
+      foo: "bar",
+      who: "what",
+      four: 4
+    });
   });
 }
