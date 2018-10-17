@@ -18,6 +18,14 @@ function match(newFriend, all){
   return all[indexBestMatch];
 }
 
+function notInDB(newFriend, all) {
+  for (let i = 0; i < all.length; i++){
+    if (newFriend.name.toLowerCase() == all[i].name.toLowerCase()){
+      return false;
+    }
+  }
+  return true;
+}
 
 
 module.exports = function(app) {
@@ -27,9 +35,11 @@ module.exports = function(app) {
 
   app.post("/api/friends", function(req, res){
     const incoming = req.body;
-    console.log("incoming: ", incoming);
-    res.json(match(incoming, friendData));
-    friendData.push(incoming);
-    console.log("updated data: ", friendData);
+    console.log("incoming data:\n---------\n ", incoming);
+    if (notInDB(incoming, friendData)) {
+      res.json(match(incoming, friendData));  
+      friendData.push(incoming);
+    } 
+    console.log("updated data: \n-------\n", friendData);
   });
 }

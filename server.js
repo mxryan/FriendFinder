@@ -1,10 +1,3 @@
-// todo:
-// views: home, survey
-// form validation on survey page
-// add css styles to match modal
-// prevent resubmission
-// bonus: page to view all users?
-
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -12,11 +5,9 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-
-// import routes
 const setAPIRoutes = require("./app/routing/apiRoutes");
-setAPIRoutes(app);
 const setHTMLRoutes = require("./app/routing/htmlRoutes");
+setAPIRoutes(app);
 setHTMLRoutes(app);
 
 
