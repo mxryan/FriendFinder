@@ -227,6 +227,10 @@
       const p = document.createElement("p");
       const img = document.createElement("img");
 
+      while(modalBod.firstChild) {
+        modalBod.removeChild(modalBod.firstChild);
+      }
+
       p.textContent = "Congradulations! You have been matched with " + newFriend.name + "!";
       img.src = newFriend.photoURL;
       img.style.width = "25%";
