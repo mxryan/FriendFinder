@@ -1,7 +1,8 @@
 // todo:
 // views: home, survey
 // form validation on survey page
-// upon submission they recieve their best "friend match"
+// add css styles to match modal
+// prevent resubmission
 // bonus: page to view all users?
 
 const express = require("express");
