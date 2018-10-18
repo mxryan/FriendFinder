@@ -9,7 +9,7 @@ function match(newFriend, all){
     for (let j = 0; j < cols; j++) {
       currentDiff += Math.pow(newFriend.scores[j] - all[i].scores[j], 2)
     }
-    currentDiff = Math.sqrt(currentDiff);
+    
     if (currentDiff < bestDiff) {
       bestDiff = currentDiff;
       indexBestMatch = i;
